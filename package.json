@@ -5,6 +5,22 @@
   "keywords": ["pi-package", "pi-extension", "subagent", "windows"],
   "type": "module",
   "license": "MIT",
+  "author": "Muntasim Ul Haque",
+  "homepage": "https://github.com/muntasimulhaque/pi-subagent-windows#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muntasimulhaque/pi-subagent-windows.git"
+  },
+  "bugs": {
+    "url": "https://github.com/muntasimulhaque/pi-subagent-windows/issues"
+  },
+  "files": [
+    "index.ts",
+    "shared.ts",
+    "subagent.ts",
+    "supervisor.ts",
+    "skills"
+  ],
   "bin": {
     "subagent": "./subagent.ts"
   },
