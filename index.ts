@@ -6,6 +6,7 @@ import { DynamicBorder, type ExtensionAPI, type ExtensionContext, keyHint } from
 import { Container, type SelectItem, SelectList, Text, type TUI } from "@earendil-works/pi-tui";
 import {
 	effectiveRunState,
+	findRuntimeFile,
 	getAgentDir,
 	inboxDir,
 	isRunAlive,
@@ -33,7 +34,7 @@ function ensureCliShim(): void {
 	if (process.platform !== "win32") return;
 	try {
 		const binDir = join(getAgentDir(), "bin");
-		const cliPath = join(packageDir, "subagent.ts");
+		const cliPath = findRuntimeFile("subagent");
 		const cliPathUnix = cliPath.replace(/\\/g, "/");
 
 		const cmdMarker = "rem pi-subagent-windows shim";

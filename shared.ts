@@ -15,7 +15,19 @@ import { homedir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const packageDir = dirname(fileURLToPath(import.meta.url));
+/**
+ * Locate a runtime entry point, preferring the compiled `dist/` output.
+ * Compiled files are required when the package is installed under `node_modules`,
+ * where Node refuses to strip TypeScript types.
+ */
+export function findRuntimeFile(name: string): string {
+	const here = dirname(fileURLToPath(import.meta.url));
+	const candidates = [join(here, "dist", `${name}.js`), join(here, `${name}.ts`), join(here, `${name}.js`)];
+	for (const candidate of candidates) {
+		if (existsSync(candidate)) return candidate;
+	}
+	throw new Error(`Could not locate the ${name} runtime file`);
+}
 
 export type RunState = "starting" | "busy" | "idle" | "exited" | "error";
 
@@ -246,7 +258,7 @@ export function tmuxSessionExists(session: string): boolean {
  */
 export function launchRun(metadata: RunMetadata, initialArgs: string[] = []): void {
 	if (isWindows()) {
-		const supervisorPath = join(packageDir, "supervisor.ts");
+		const supervisorPath = findRuntimeFile("supervisor");
 		const child = spawn(process.execPath, [supervisorPath, metadata.runDir], {
 			cwd: metadata.cwd,
 			detached: true,

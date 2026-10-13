@@ -24,6 +24,12 @@ On non-Windows platforms the upstream tmux behavior is kept, so the fork stays m
 ## Install
 
 ```sh
+pi install npm:pi-subagent-windows
+```
+
+Or install straight from GitHub:
+
+```sh
 pi install git:github.com/muntasimulhaque/pi-subagent-windows
 ```
 

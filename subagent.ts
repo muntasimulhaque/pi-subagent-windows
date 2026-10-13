@@ -27,7 +27,9 @@ import {
 } from "./shared.ts";
 
 const VALID_THINKING_LEVELS = new Set(["off", "minimal", "low", "medium", "high", "xhigh", "max"]);
-const extensionPath = join(dirname(fileURLToPath(import.meta.url)), "index.ts");
+const moduleDir = dirname(fileURLToPath(import.meta.url));
+const packageRoot = existsSync(join(moduleDir, "index.ts")) ? moduleDir : dirname(moduleDir);
+const extensionPath = join(packageRoot, "index.ts");
 
 function fail(message: string): never {
 	throw new Error(message);
