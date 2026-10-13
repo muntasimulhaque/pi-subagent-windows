@@ -1,0 +1,21 @@
+{
+  "name": "pi-subagent-windows",
+  "version": "0.1.0",
+  "description": "Windows port of pi-subagent: hidden, persistent Pi subagents without tmux",
+  "keywords": ["pi-package", "pi-extension", "subagent", "windows"],
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "subagent": "./subagent.ts"
+  },
+  "pi": {
+    "extensions": ["./index.ts"]
+  },
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-tui": "*"
+  }
+}
