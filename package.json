@@ -15,6 +15,7 @@
     "url": "https://github.com/muntasimulhaque/pi-subagent-windows/issues"
   },
   "files": [
+    "bin",
     "index.ts",
     "shared.ts",
     "subagent.ts",
@@ -22,7 +23,7 @@
     "skills"
   ],
   "bin": {
-    "subagent": "./subagent.ts"
+    "subagent": "./bin/subagent.js"
   },
   "pi": {
     "extensions": ["./index.ts"]
