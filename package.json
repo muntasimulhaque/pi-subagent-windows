@@ -33,7 +33,8 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "smoke": "node scripts/smoke.mjs",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run smoke"
   },
   "pi": {
     "extensions": [
