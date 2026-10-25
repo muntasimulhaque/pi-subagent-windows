@@ -1,6 +1,6 @@
 {
   "name": "pi-subagent-windows",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Windows port of pi-subagent: hidden, persistent Pi subagents without tmux",
   "keywords": [
     "pi-package",
